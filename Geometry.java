@@ -14,13 +14,15 @@ public class Geometry
      * @param h  height of the parallelogram
      * @return   area of the parallelogram
      */
-    public static double parallelogramArea(double length, double width) 
+    public static double parallelogramArea(double base, double height) 
     {
-        return length * width;
+        double area = base * height;
+        
+        return base * height;
     }
     
     /**
-     * Calculates the area of a triange.
+     * Calculates the area of a triangle.
      *
      * @param b  length of base of triangle
      * @param h  height of the triangle
@@ -38,6 +40,62 @@ public class Geometry
         return 4.0 / 3.0 * Math.PI * Math.pow(radius, 3);
     }
     
+    public static double trapezoidArea(double base, double height)
+    {
+        double area = base + base / 2.0 * height;
+        
+        return area;
+    }
+    
+    public static double rectangularprismVolume(double length, double width, double height)
+    {
+        double volume = width * height * length;
+        
+        return volume;
+    }
+    
+    public static double coneVolume(double radius, double height)
+    {
+        double volume = Math.PI * Math.pow(radius, 2) * height / 3.0;
+        
+        return volume;
+    }
+    
+    public static double rectangularprismSurfaceArea(double length, double width, double height)
+    {
+        double surfaceArea = 2 * ((width * length) + (height * length) + (height * width));
+        
+        return surfaceArea;
+    }
+    
+    public static double sphereSurfaceArea(double radius)
+    {
+        double surfaceArea = 4 * Math.PI * Math.pow(radius, 2);
+        
+        return surfaceArea;
+    }
+    
+    public static double getHypotenuse(double a, double b)
+    {
+        double c = Math.sqrt(Math.pow(a, 2) * Math.pow(b, 2));
+        
+        return c;
+    }
+    
+    public static double getDistance(double x1, double y1, double x2, double y2)
+    {
+        double distance = Math.sqrt((Math.pow(x2-x1, 2)) + (Math.pow(y2-y1, 2)));
+        
+        return distance;
+    }
+    
+    public static double getSlope(double x1, double y1, double x2, double y2)
+    {
+        double slope = (y2 - y1) / (x2 - x1);
+        
+        return slope;
+    }
+    
     public static void main(String[] args) 
     {
         double ta1 = triangleArea(4.2, 8.1);
@@ -46,7 +104,7 @@ public class Geometry
         System.out.println(ta1);
         System.out.println(ta2);
         
-        double ra1 = rectangleArea(5.2, 9.3);
+        double ra1 = parallelogramArea(5.2, 9.3);
         System.out.println(ra1);
     }
 }
